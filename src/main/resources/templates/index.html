@@ -16,7 +16,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand d-flex align-items-center text-dark neon-hover" href="">
+    <a class="navbar-brand d-flex align-items-center text-warning neon-hover" href="">
       <img src="imagenes/Logo.png" alt="Logo de Easy Job">
       Easy Job
     </a>
@@ -28,9 +28,9 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active text-info neon-hover text-dark" th:href="@{/login}">Portal de Empleados</a>
-        <a class="nav-link text-info neon-hover text-dark" th:href="@{/registro}">Registrarte</a>
-        <a class="nav-link text-info neon-hover text-dark" href=" ">Sobre Nosotros</a>
+        <a class="nav-link active text-info neon-hover text-warning" th:href="@{/login}">Portal de Empleados</a>
+        <a class="nav-link text-info neon-hover text-warning" th:href="@{/registro}">Registrarte</a>
+        <a class="nav-link text-info neon-hover text-warning" href=" ">Sobre Nosotros</a>
       </div>
     </div>
   </div>
@@ -42,11 +42,11 @@
     <!-- Sección HERO -->
     <section class="hero text-center py-5 mb-0" style="position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center;">
       <!-- Capa oscura solo en hero -->
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+      <div style="position: absolute; "></div>
 
       <div class="container-xxl" style="position: relative; z-index: 2;">
-        <h1 class="display-5 fw-bold text-warning">Tu futuro laboral, más cerca:</h1>
-        <p class="lead text-warning">Easy Job es una plataforma integral diseñada para facilitar la gestión laboral de empleados y empleadores. 
+        <h1 class="display-5 fw-bold text-info">Tu futuro laboral, más cerca:</h1>
+        <p class="lead text-dark ">Easy Job es una plataforma integral diseñada para facilitar la gestión laboral de empleados y empleadores. 
     Permite acceder a oportunidades de empleo, solicitar vacaciones, registrar incapacidades, consultar desprendibles de pago, 
     afiliar familiares, y gestionar certificaciones, todo desde un solo lugar. 
     Simple, ágil y al alcance de todos.</p>
@@ -60,7 +60,7 @@
 <body>
     <section class="text-center py-5" style="position: relative; z-index: 2;">
         <div class="container">
-            <h2 class="text-warning neon-hover py-5">¿Qué ofrecemos?</h2>
+            <h2 class="text-dark neon-hover py-5">¿Qué ofrecemos?</h2>
             <div class="d-flex justify-content-center flex-wrap gap-2 mt-3">
                 <button onclick="showCategory('personal')" class="btn btn-outline-success category-btn active" id="btn-personal">
                     <i class="fas fa-users me-2"></i>Gestión De Personal
@@ -85,8 +85,8 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <h3 id="category-title" class="mb-4 text-warning">Gestión De Personal</h3>
-                        <p id="category-description" class="lead mb-4 text-info">
+                        <h3 id="category-title" class="mb-4 ">Gestión De Personal</h3>
+                        <p id="category-description" class="lead mb-4 ">
                             Optimiza la gestión de tu equipo humano con soluciones integrales que abarcan desde la selección hasta el desarrollo profesional.
                         </p>
                     </div>
@@ -98,14 +98,14 @@
     </section>
 <!-- Tarjetas de servicios -->
 <div class="container my-4 pt-4">
-  <h3 class="text-center text-warning my-4 pt-5 neon-hover">Novedades</h3>
+  <h2 class="text-center text-dark my-4 pt-5 neon-hover">Novedades</h2>
   <div class="row row-cols-1 row-cols-md-3 pt-5 g-4">
     <div class="col">
       <div class="card h-100 position-relative text-white overlay-card">
         <img src="imagenes/vaciones.webp" class="card-img" alt="Búsqueda de empleo">
         <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
           <h5 class="card-title text-info">Plataforma De Vacaciones</h5>
-          <p class="card-text text-warning">Consulta tus días acumulados, solicita vacaciones y lleva el control de tu tiempo libre.</p>
+          <p class="card-text text-white">Consulta tus días acumulados, solicita vacaciones y lleva el control de tu tiempo libre.</p>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@
         <img src="imagenes/capacitacion.jpg" class="card-img" alt="Capacitación">
         <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
           <h5 class="card-title text-info">Sube Tus Incapacidades</h5>
-          <p class="card-text text-warning">Reporta tus incapacidades médicas, adjunta soportes y lleva un historial actualizado fácilmente.</p>
+          <p class="card-text text-white">Reporta tus incapacidades médicas, adjunta soportes y lleva un historial actualizado fácilmente.</p>
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
         <img src="imagenes/entrevista.jpg" class="card-img" alt="Entrevista">
         <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
           <h5 class="card-title text-info">Solicita Tus Certificados</h5>
-          <p class="card-text text-warning">Solicita certificados laborales, constancias de ingresos y otros documentos de manera rápida y sencilla.</p>
+          <p class="card-text text-white">Solicita certificados laborales, constancias de ingresos y otros documentos de manera rápida y sencilla.</p>
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@
 </div>
 
 <div class="container my-5 py-5 text-center">
-  <h3 class="neon-hover text-warning">Impacto de Easy Job</h3>
+  <h3 class="neon-hover text-dark">Impacto de Easy Job</h3>
   <div class="row justify-content-center mt-4 pt-5">
     <div class="col-6 col-md-2">
       <div class="metric-box neon-hover text-warning">
@@ -191,7 +191,7 @@
 
 
 <div class="container text-center my-5 pt-5 neon-hover">
-  <h3 class="text-warning">Empresas que confían en nosotros</h3>
+  <h3 class="text-dark">Empresas que confían en nosotros</h3>
   <div class="d-flex justify-content-center flex-wrap mt-4 pt-5 gap-4">
     <img src="imagenes/logo1.png" alt="Logo 1" height="50">
     <img src="imagenes/logo2.png" alt="Logo 2" height="50">

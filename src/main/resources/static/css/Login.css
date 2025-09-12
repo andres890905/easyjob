@@ -3,12 +3,6 @@
   height: 60px;
   margin-right: 10px;
 }
-@media (min-width: 768px) {
-  .navbar-brand img {
-    height: 60px;
-    margin-right: 20px;
-  }
-}
 
 @media (min-width: 768px) {
   .navbar-brand img {
@@ -16,10 +10,16 @@
     margin-right: 20px;
   }
 }
+
+/* Fondo general */
 body {
-  background: linear-gradient(to right, #2254a0, #65ace6);
-   font-family: 'Poppins', sans-serif;
+  background: url('imagenes/hero.jpg') no-repeat center center; 
+  background-size: cover; 
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
 }
+
+/* Formulario login centrado */
 .formulario-login {
   display: flex;
   justify-content: center;
@@ -27,6 +27,7 @@ body {
   min-height: 80vh;
   padding: 1rem;
 }
+
 .formulario-login .card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
@@ -37,24 +38,16 @@ body {
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 500px;
-}
-.info-login h4, .beneficios h5 {
-  font-family: 'Poppins', sans-serif;
-  color: #2254a0;
+  max-width: 400px;
 }
 
-.alert-info {
-  background-color: #e7f3fe;
-  border-color: #b3d7ff;
-  color: #084298;
-}
+/* Beneficios */
 .beneficios {
   position: relative;
   color: white;
   padding: 2rem;
   border-radius: 15px;
-  background: url('../imagenes/hero.jpg') no-repeat center center;
+  background: url('/imagenes/hero.jpg') no-repeat center center;
   background-size: cover;
   overflow: hidden;
 }
@@ -62,8 +55,8 @@ body {
 .beneficios::before {
   content: "";
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(0, 0, 0, 0.4); /* Negro con opacidad del 40% */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
   border-radius: 15px;
 }
@@ -73,16 +66,18 @@ body {
   z-index: 1;
 }
 
+/* Hover efecto */
 .hover-text {
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .hover-text:hover {
-  color: #26c523;       /* Cambia el color al azul */
-  transform: scale(1.05); /* Hace el texto un poco más grande */
-  text-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Añade un resplandor */
+  color: #26c523;
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
+
 .neon-hover {
   color: #fff;
   text-shadow: none;
@@ -91,7 +86,7 @@ body {
 }
 
 .neon-hover:hover {
-  color: #0ff; /* color cian neón */
+  color: #0ff;
   text-shadow:
     0 0 5px rgb(32, 133, 133),
     0 0 10px rgb(32, 133, 133),

@@ -7,17 +7,22 @@ import jakarta.persistence.*;
 public class Usuario {
 
     @Id
-    @Column(name = "idusuarios")
-    private Integer idusuarios;
+    private Integer idusuarios; // Ahora el usuario escribe la cédula manualmente
+
+    @ManyToOne
+    @JoinColumn(name = "id_sucursal", nullable = false)
+    private Sucursal sucursal;
+
+    @ManyToOne
+    @JoinColumn(name = "id_roles", nullable = false)
+    private Rol rol;
 
     private String nombre;
     private String apellido;
     private String correo;
+    private String contrasena;
 
-    // ✅ Constructor vacío
-    public Usuario() {}
-
-    // ✅ Getters y Setters
+    // ===== Getters y Setters =====
     public Integer getIdusuarios() {
         return idusuarios;
     }
@@ -26,11 +31,27 @@ public class Usuario {
         this.idusuarios = idusuarios;
     }
 
-    public String getNombre() {
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public String getNombre() {   // 👈 getter correcto
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) {  // 👈 setter correcto
         this.nombre = nombre;
     }
 
@@ -48,6 +69,14 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
 

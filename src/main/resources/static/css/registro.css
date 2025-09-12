@@ -13,24 +13,15 @@
 
 /* Texto del logo */
 .navbar-brand {
- 
   font-size: 1.5rem;
+  
 }
-
-/* Fondo del navbar */
-nav.navbar {
-  background: linear-gradient(to right, #2254a0, #65ace6);
-  background-size: cover;
-  background-position: center;
-}
-
-/* Color del texto en navbar */
 
 
 /* Fondo general */
 body {
-  background: linear-gradient(to right, #2254a0, #65ace6);
-   font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #252d40 0%, #374e5f 100%)!important;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Contenedor del formulario */
@@ -54,9 +45,9 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 500px;
-  
 }
 
+/* Efecto neon hover */
 .neon-hover {
   color: #fff;
   text-shadow: none;
@@ -64,9 +55,8 @@ body {
   cursor: pointer;
 }
 
-
 .neon-hover:hover {
-  color: #0ff; /* color cian neón */
+  color: #0ff;
   text-shadow:
     0 0 5px rgb(32, 133, 133),
     0 0 10px rgb(32, 133, 133),
@@ -74,8 +64,14 @@ body {
     0 0 40px rgb(32, 133, 133);
   transform: scale(1.05);
 }
-.card-img{
-  object-fit: cover;
-  width: 100%;
-  height: 200px;
+
+/* Inputs */
+.form-control {
+  border-radius: 0.5rem;
+}
+
+/* Botón */
+.btn-success {
+  border-radius: 0.5rem;
+  font-weight: 600;
 }

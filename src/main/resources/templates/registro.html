@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="css/Registro.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/Registro.css}" />
 </head>
 <body>
 
@@ -17,12 +16,13 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center neon-hover text-warning" th:href="@{/}">
-        <img src="imagenes/Logo.png" alt="Logo de Easy Job">Easy job</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+        <img th:src="@{/imagenes/Logo.png}" alt="Logo de Easy Job">Easy Job
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active neon-hover text-warning" th:href="@{/login}">Login</a>
           <a class="nav-link neon-hover text-warning" th:href="@{/registro}">Registrarse</a>
@@ -31,94 +31,61 @@
       </div>
     </div>
   </nav>
-<div class="container my-4 pt-4">
-  <h3 class="text-center text-warning my-4 pt-5 neon-hover">
-  Regístrate con Nosotros y podrás Acceder a:
-</h3>
 
-  <div class="row row-cols-1 row-cols-md-3 pt-5 g-4">
-    <div class="col">
-      <div class="card h-100 position-relative text-white overlay-card">
-        <img src="imagenes/desprendible.webp" class="card-img" alt="Búsqueda de empleo">
-        <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
-          <h5 class="card-title text-info">Desprendibles De Pago</h5>
-          <p class="card-text text-warning">Consulta y descarga tus desprendibles de nómina de forma segura y en cualquier momento.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 position-relative text-white overlay-card">
-        <img src="imagenes/laboral.jpg" class="card-img" alt="Capacitación">
-        <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
-          <h5 class="card-title text-info">Mejora tu Hoja de Vida</h5>
-          <p class="card-text text-warning">Actualiza tus datos, destaca tus habilidades y fortalece tu perfil para nuevas oportunidades laborales.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 position-relative text-white overlay-card">
-        <img src="imagenes/afiliacion.jpg" class="card-img" alt="Entrevista">
-        <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 p-3">
-          <h5 class="card-title text-info">Afiliar A Tus familiares</h5>
-          <p class="card-text text-warning">Registra a tus beneficiarios para servicios médicos, subsidios y otros beneficios laborales..</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <!-- Formulario -->
-  <div class="Formulario py-5">
+  <!-- Contenedor del formulario -->
+  <div class="Formulario">
     <div class="card">
-      <h2 class="mb-4 text-center neon-hover text-warning">Registro</h2>
-      <form>
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label for="nombre" class="form-label text-warning">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
-          </div>
-          <div class="col-md-6">
-            <label for="apellido" class="form-label text-warning">Apellido</label>
-            <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required>
-          </div>
-        </div>
+      <div class="card-body">
+        <h3 class="text-center text-warning mb-4">Registro de Usuario</h3>
 
-        <div class="mb-3">
-          <label for="cedula" class="form-label text-warning">Cédula</label>
-          <input type="text" class="form-control" id="cedula" placeholder="Ingrese su cédula" required>
-        </div>
+  <form th:action="@{/registro}" th:object="${usuario}" method="post">
+  <!-- Cédula (ID de usuario) -->
+  <label for="cedula" class="form-label">Cédula</label>
+  <input type="number" id="cedula" th:field="*{idusuarios}" class="form-control mb-3" required>
 
-        <div class="mb-3">
-          <label for="email" class="form-label text-warning">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required>
-        </div>
+  <!-- Nombre -->
+  <label for="nombre" class="form-label">Nombre</label>
+  <input type="text" id="nombre" th:field="*{nombre}" class="form-control mb-3" required>
 
-        <div class="mb-3">
-          <label for="password" class="form-label text-warning">Contraseña</label>
-          <input type="password" class="form-control" id="password" placeholder="Ingrese una contraseña segura" required>
-        </div>
+  <!-- Apellido -->
+  <label for="apellido" class="form-label">Apellido</label>
+  <input type="text" id="apellido" th:field="*{apellido}" class="form-control mb-3" required>
 
-        <div class="mb-4">
-          <label for="sede" class="form-label text-warning">Sede</label>
-          <select class="form-select" id="sede" required>
-            <option value="">Seleccione una sede</option>
-            <option value="bogota">Bogotá</option>
-            <option value="medellin">Medellín</option>
-            <option value="cali">Cali</option>
-            <option value="barranquilla">Barranquilla</option>
-          </select>
-        </div>
+  <!-- Correo -->
+  <label for="correo" class="form-label">Correo</label>
+  <input type="email" id="correo" th:field="*{correo}" class="form-control mb-3" required>
 
-        <button type="submit" class="btn btn-primary w-100 text-warning">Registrarse</button>
-      </form>
+  <!-- Rol (Cargo) -->
+  <label for="rol" class="form-label">Rol (Cargo)</label>
+  <select id="rol" name="rol" class="form-control mb-3" required>
+    <option value="">Seleccione un rol</option>
+    <option th:each="r : ${roles}" th:value="${r.id_roles}" th:text="${r.tipoRol}"></option>
+  </select>
+
+  <!-- Sucursal -->
+  <label for="sucursal" class="form-label">Sucursal</label>
+  <select id="sucursal" name="sucursal" class="form-control mb-3" required>
+    <option value="">Seleccione una sucursal</option>
+    <option th:each="s : ${sucursales}" th:value="${s.id_sucursal}" th:text="${s.nombreSucursal}"></option>
+  </select>
+
+  <!-- Contraseña -->
+  <label for="contrasena" class="form-label">Contraseña</label>
+  <input type="password" id="contrasena" th:field="*{contrasena}" class="form-control mb-3" required>
+
+  <!-- Botón de registro -->
+  <button type="submit" class="btn btn-success w-100 mt-2">Registrarse</button>
+</form>
+
+
+
+        <div class="text-center mt-3">
+          <p>¿Ya tienes cuenta? <a th:href="@{/login}" class="text-warning neon-hover">Inicia sesión</a></p>
+        </div>
+      </div>
     </div>
   </div>
-<div class="text-center mt-3">
-    <p>¿Ya tienes cuenta? <a href="login.html" class="text-warning neon-hover">Inicia sesión</a></p>
-    
-  </div>
-</div>
+
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4 mt-5">
     <div class="container">
