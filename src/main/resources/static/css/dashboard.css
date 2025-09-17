@@ -1,70 +1,274 @@
 
+/* Reset / base */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #5521cf, #2e88d1);
-  background-size: cover;
+  background: linear-gradient(to right, #2e2c31, #656f77);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   color: white;
   margin-left: 240px;
 }
-.navbar-brand img {
-  height: 60px;
-  margin-right: 10px
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background-color: #1e1e2f;
+  padding: 20px 12px;
+  color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: 20px ;
+  border-bottom-right-radius: 20px ;
 }
-@media (max-width: 991px) {
-  .navbar-collapse {
-    
-    border-radius: 10px;
-    padding: 10px;
+
+.logo {
+  display: block;
+  margin: 0 auto 18px auto;
+  width: 120px;
+  object-fit: contain;
+}
+
+/* Botones principales del sidebar */
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: #d2e009;
+  padding: 10px 12px;
+  width: 100%;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.dropdown-btn:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Contenedores de links secundarios (hidden by default) */
+.dropdown-container {
+  display: none;
+  margin-bottom: 8px;
+  padding-left: 6px;
+}
+
+/* Mostrar cuando JS agrega la clase .show */
+.dropdown-container.show {
+  display: block;
+}
+
+/* Sub-botones dentro de cada dropdown */
+.dropdown-container a {
+  display: block;
+  background: #2e2e40;
+  color: #ece24e;
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.dropdown-container a:hover {
+  background: #3a4441;
+  color: white;
+  transform: translateX(6px);
+}
+.dropdown-container a i {
+  margin-right: 8px;
+}
+
+/* Main content */
+.main-content {
+  padding: 30px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: none;
+}
+
+/* Responsive: ocultar margen-left y mostrar sidebar deslizable */
+@media (max-width: 768px) {
+  body {
+    margin-left: 0;
+  }
+  .sidebar {
+    transform: translateX(-260px);
+    transition: transform 0.25s ease;
+  }
+  .sidebar.active {
+    transform: translateX(0);
   }
 }
+/* Formulario de incapacidades */
+#seccionIncapacidades {
+  background: rgb(19, 18, 18);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 240px;
-      background-color: #1e1e2f;
-      padding: 20px 10px;
-      color: white;
-      z-index: 1000;
-    }
+#incapacidadForm .form-group {
+  margin-bottom: 15px;
+}
+#seccionIncapacidades h2 {
+  color: #ffc107;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#incapacidadForm label {
+  color: #ffc107;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
 
-    .sidebar .nav-link {
-      color: #ccc;
-      margin: 10px 0;
-      padding: 10px 15px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
+#incapacidadForm input,
+#incapacidadForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-    .sidebar .nav-link:hover,
-    .sidebar .nav-link.active {
-      background-color: #343456;
-      color: #fff;
-    }
+#incapacidadForm input:focus,
+#incapacidadForm textarea:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
 
-    .sidebar .navbar-brand {
-      font-size: 1.4rem;
-      color: #f9b115;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
+#incapacidadForm .btn-guardar {
+  background: #c6db09;
+  color: rgb(27, 24, 24);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .sidebar .navbar-brand img {
-      height: 40px;
-      margin-right: 10px;
-    }
+#incapacidadForm .btn-guardar:hover {
+  background: #5348c7;
+}
+.logo {
+  width: 100%;
+  max-width: 100px;
+  margin: 10px auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
 
-    .main-content {
-      padding: 30px;
-    }
+.logo:hover {
+  transform: scale(1.05);
+}
+/* Foto circular estilo carné */
+.foto-usuario {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffc107; /* Amarillo dorado */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-    .card-custom {
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+/* Tarjeta tipo cédula */
+#tarjetaBienvenida {
+  max-width: 400px;
+  margin: 0 auto; /* Centrar */
+  background: #1a1a1a; /* Fondo oscuro elegante */
+  color: white;
+}
+
+#tarjetaBienvenida .list-group-item {
+  background: transparent;
+  border: none;
+  padding: 8px 0;
+  color: #fff;
+}
+
+#tarjetaBienvenida strong {
+  color: #ffc107; /* Amarillo dorado */
+}
+#hojaDeVida {
+  max-width: 800px;          
+  margin: 0 auto;            
+  background: #1a1a1a;       
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Títulos */
+#tarjetaBienvenida h3,
+#hojaDeVida h2 {
+  color: #ffc107; /* Amarillo dorado */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Inputs dentro de hoja de vida */
+#hojaDeVida .form-control {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 8px;
+}
+
+#hojaDeVida .form-control:focus {
+  background: #333;
+  border-color: #ffc107;
+  box-shadow: 0 0 5px #ffc107;
+}
+
+/* Botón guardar */
+#hojaDeVida .btn-primary {
+  background: #ffc107;
+  border: none;
+  color: #1a1a1a;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+#hojaDeVida .btn-primary:hover {
+  background: #e0a800;
+}
+#hojaDeVida label {
+  font-weight: 600;
+  color:#ffc107
+}
+#seccionVacacionesForm  {
+  background: #111111;
+  border-radius: 20px;
+  
+}
+#seccionVacacionesForm .btn-success {
+  background: #ffc107;
+  border: none;
+  color: #1a1a1a;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+}
+#seccionVacacionesForm label {
+  font-weight: 600;
+  color:#ffc107
+}

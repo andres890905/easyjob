@@ -54,7 +54,7 @@
          <version>1.18.34</version>
          <scope>provided</scope>
         </dependency>
-
+        
         <!-- Conector MariaDB (XAMPP usa MariaDB) -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>

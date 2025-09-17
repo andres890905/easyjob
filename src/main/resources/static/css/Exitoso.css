@@ -1,0 +1,32 @@
+body{
+    background-image: url("/imagenes/hero.jpg");
+    background-size: cover;       /* ocupa toda la pantalla */
+    background-position: center;  /* centra la imagen */
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-in-out;
+    }
+.card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    }
+.btn-primary {
+    background-color: #2575fc;
+    border: none;
+    transition: transform 0.2s;
+    }
+.btn-primary:hover {
+    transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px);}
+     to { opacity: 1; transform: translateY(0);}
+        }

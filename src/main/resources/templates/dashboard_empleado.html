@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Easy Job</title>
+
+  <!-- Bootstrap y Fuentes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- Botón hamburguesa -->
+  <button class="btn btn-warning d-md-none m-3" id="toggleSidebar">
+    <i class="bi bi-list"></i> Menú
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <img src="imagenes/Logo.png" alt="Logo" class="logo" id="btnLogo">
+
+    <button class="dropdown-btn text-sucess mb-3">
+      <i class="bi bi-person-square"></i> Hoja de Vida
+      <i class="bi bi-caret-down-fill float-end"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#" id="btnHojaDeVida"><i class="bi bi-pencil-square me-2"></i>Administrar Hoja de Vida</a>
+      <a href="#" id="btnHistorialCambios"><i class="bi bi-clock-history me-2"></i>Historial de Cambios</a>
+    </div>
+
+    <button class="dropdown-btn  mb-3">
+      <i class="fas fa-file-lines"></i> Trámites
+      <i class="bi bi-caret-down-fill float-end"></i>
+    </button>
+    <div class="dropdown-container">
+  <a href="#" id="btnVacacionesSolicitar">
+    <i class="fas fa-plane-departure me-2"></i> Solicitar Vacaciones
+  </a>
+  <a href="#" id="btnVacacionesHistorial">
+    <i class="fas fa-history me-2"></i> Historial de Vacaciones
+  </a>
+  <a href="#" id="btnIncapacidades">
+    <i class="bi bi-heart-pulse me-2"></i> Incapacidades
+  </a>
+  <a href="#" id="btnOtrosTramites">
+    <i class="bi bi-three-dots me-2"></i> Otros trámites
+  </a>
+</div>
+
+
+    <button class="dropdown-btn mb-3">
+      <i class="bi bi-person-workspace"></i> Reportes
+      <i class="bi bi-caret-down-fill float-end"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#"><i class="bi bi-file-earmark-text me-2"></i>Certificado Laboral</a>
+      <a href="#"><i class="bi bi-receipt me-2"></i>Comprobante de pago</a>
+      <a href="#"><i class="bi bi-files-alt me-2"></i>Otros certificados</a>
+    </div>
+
+    <button class="dropdown-btn  mb-3">
+      <i class="bi bi-calendar-day"></i> Horarios
+      <i class="bi bi-caret-down-fill float-end"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#" id="btnHorario"><i class="bi bi-calendar2-week me-2"></i>Tu Horario</a>
+    </div>
+
+    <!-- Cerrar sesión -->
+    <div class="mt-auto p-3">
+        <a th:href="@{/logout}" class="btn btn-danger w-100">
+        <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+  </a>
+</div>
+
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main-content container mt-5">
+
+    <!-- Tarjeta de bienvenida -->
+   <div class="card shadow-lg p-4 border-0 rounded-4 text-center" id="tarjetaBienvenida">
+    <div class="card-body">
+    <img src="imagenes/perfil.jpeg" alt="Foto Usuario" class="foto-usuario mb-3">
+    <h3 class="card-title text-warning">Oscar Gómez</h3>
+    <p class="text-warning">Desarrollador</p>
+    <ul class="list-group list-group-flush text-start mt-3">
+      <li class="list-group-item"><strong class="text-warning">Sucursal:</strong> Bogotá</li>
+      <li class="list-group-item"><strong class="text-warning">Fecha de Registro:</strong> 2025-01-01</li>
+      <li class="list-group-item"><strong class="text-warning">Correo:</strong> oscar@email.com</li>
+      <li class="list-group-item"><strong class="text-warning">Teléfono:</strong> 3001234567</li>
+    </ul>
+  </div>
+</div>
+
+
+    <!-- Hoja de Vida -->
+    <div id="hojaDeVida" style="display: none;">
+      <div class="">
+        <h2>Editar datos Personales</h2>
+        <form id="hojaForm" class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" value="Oscar">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="apellido" value="Gómez">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Correo</label>
+            <input type="email" class="form-control" name="correo" value="oscar@email.com">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control" name="telefono" value="3001234567">
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Dirección</label>
+            <input type="text" class="form-control" name="direccion" value="Calle 123 #45-67">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="fecha_nacimiento" value="1995-08-15">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Formulario Vacaciones -->
+    <div id="seccionVacacionesForm" style="display: none;">
+      <div class="card  p-4 ">
+        <h2 class="text-center text-warning mb-3">Solicitar Vacaciones</h2>
+        <form id="formVacaciones" method="POST" action="">
+          <div class="mb-3">
+            <label for="fecha_inicio" class="form-label">Fecha de Inicio:</label>
+            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
+          </div>
+          <div class="mb-3">
+            <label for="fecha_fin" class="form-label">Fecha de Fin:</label>
+            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
+          </div>
+          <div class="mb-3">
+            <label for="motivo" class="form-label">Motivo:</label>
+            <textarea class="form-control" id="motivo" name="motivo" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success ">Enviar Solicitud</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Historial Vacaciones -->
+    <div id="seccionVacacionesHistorial" style="display: none;">
+      <div class="card shadow-lg p-4 border-0 rounded-4 mb-4">
+        <h2 class="text-center text-warning mb-3">Historial de Vacaciones</h2>
+        <table class="table table-striped table-hover text-center">
+          <thead class="table-dark">
+            <tr>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+              <th>Motivo</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Se rellenará desde JS o desde el backend -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Incapacidades -->
+    <!-- Sección Incapacidades -->
+<div id="seccionIncapacidades" class="content-section" style="display: none;">
+  <h2>Reporte de Incapacidad</h2>
+  <form id="incapacidadForm">
+    <div class="form-group">
+      <label for="fechaInicioIncapacidad">Fecha de Inicio</label>
+      <input type="date" id="fechaInicioIncapacidad" name="fechaInicioIncapacidad" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fechaFinIncapacidad">Fecha de Fin</label>
+      <input type="date" id="fechaFinIncapacidad" name="fechaFinIncapacidad" required>
+    </div>
+
+    <div class="form-group">
+      <label for="motivoIncapacidad">Motivo</label>
+      <textarea id="motivoIncapacidad" name="motivoIncapacidad" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="archivoSoporte">Adjuntar Soporte Médico</label>
+      <input type="file" id="archivoSoporte" name="archivoSoporte" accept=".pdf,.jpg,.png" required>
+    </div>
+
+    <button type="submit" class="btn-guardar">Subir Incapacidad</button>
+  </form>
+</div>
+
+    <!-- Horario -->
+    <div class="card mt-4 p-4 shadow" id="seccionHorario" style="display: none;">
+      <h3 class="text-center text-warning">Horarios Asignados</h3>
+      <p class="text-center text-warning">No tienes horarios asignados actualmente.</p>
+    </div>
+
+  </div><!-- main-content -->
+
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-0 text-warning">© 2025 Easy Job - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

@@ -13,11 +13,10 @@
 
 /* Fondo general */
 body {
-  background: url('imagenes/hero.jpg') no-repeat center center; 
-  background-size: cover; 
-  background-attachment: fixed;
+ background: linear-gradient(135deg, #252d40 0%, #374e5f 100%)!important;
   font-family: 'Poppins', sans-serif;
 }
+
 
 /* Formulario login centrado */
 .formulario-login {
