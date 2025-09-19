@@ -1,5 +1,7 @@
 package com.easyjob.easyjob.Model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +23,8 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contrasena;
+    private String telefono;
+    private LocalDate fechaRegistro;
 
     // ===== Getters y Setters =====
     public Integer getIdusuarios() {
@@ -78,5 +82,22 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+     public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public LocalDate getFechaRegistro() {   // 👈 getter correcto
+    return fechaRegistro;
+}
+
+public void setFechaRegistro(LocalDate fechaRegistro) {  // 👈 setter correcto
+    this.fechaRegistro = fechaRegistro;
+}
+
 }
 
