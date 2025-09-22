@@ -25,6 +25,9 @@ public class Usuario {
     private String contrasena;
     private String telefono;
     private LocalDate fechaRegistro;
+    private String direccion;
+    private LocalDate fechaNacimiento;
+
 
     // ===== Getters y Setters =====
     public Integer getIdusuarios() {
@@ -93,11 +96,26 @@ public class Usuario {
 
     public LocalDate getFechaRegistro() {   // 👈 getter correcto
     return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {  // 👈 setter correcto
+        this.fechaRegistro = fechaRegistro;
 }
 
-public void setFechaRegistro(LocalDate fechaRegistro) {  // 👈 setter correcto
-    this.fechaRegistro = fechaRegistro;
+    public String getDireccion() {
+    return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public LocalDate getFechaNacimiento() {
+    return fechaNacimiento;
 }
 
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 }
 

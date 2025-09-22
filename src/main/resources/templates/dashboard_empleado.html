@@ -112,88 +112,112 @@
 
 
     <!-- Hoja de Vida -->
-    <div id="hojaDeVida" style="display: none;">
-      <div class="">
-        <h2>Editar datos Personales</h2>
-        <form id="hojaForm" class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre" value="Oscar">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Apellido</label>
-            <input type="text" class="form-control" name="apellido" value="Gómez">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Correo</label>
-            <input type="email" class="form-control" name="correo" value="oscar@email.com">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Teléfono</label>
-            <input type="text" class="form-control" name="telefono" value="3001234567">
-          </div>
-          <div class="col-md-12">
-            <label class="form-label">Dirección</label>
-            <input type="text" class="form-control" name="direccion" value="Calle 123 #45-67">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" name="fecha_nacimiento" value="1995-08-15">
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-          </div>
-        </form>
+    <form id="hojaDeVida" class="row g-3" th:action="@{/guardarHojaDeVida}" method="post" th:object="${usuario}">
+      <div class="col-md-6">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" th:field="*{nombre}">
+      </div>  
+      <div class="col-md-6">
+      <label class="form-label">Apellido</label>
+      <input type="text" class="form-control" th:field="*{apellido}">
       </div>
+      <div class="col-md-6">
+      <label class="form-label">Correo</label>
+      <input type="email" class="form-control" th:field="*{correo}">
+      </div>
+      <div class="col-md-6">
+      <label class="form-label">Teléfono</label>
+      <input type="text" class="form-control" th:field="*{telefono}">
+      </div>
+      <div class="col-md-12">
+      <label class="form-label">Dirección</label>
+      <input type="text" class="form-control" th:field="*{direccion}">
+      </div>
+      <div class="col-md-6">
+      <label class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" th:field="*{fechaNacimiento}">
+      </div>
+      <div class="col-12">
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </form>
+
+    <!-- Mensaje de éxito -->
+    <div id="mensaje-exito" th:if="${param.success}" class="alert alert-success mt-3">
+     ✅ Datos actualizados correctamente.
     </div>
+
 
     <!-- Formulario Vacaciones -->
     <div id="seccionVacacionesForm" style="display: none;">
-      <div class="card  p-4 ">
-        <h2 class="text-center text-warning mb-3">Solicitar Vacaciones</h2>
-        <form id="formVacaciones" method="POST" action="">
-          <div class="mb-3">
-            <label for="fecha_inicio" class="form-label">Fecha de Inicio:</label>
-            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
-          </div>
-          <div class="mb-3">
-            <label for="fecha_fin" class="form-label">Fecha de Fin:</label>
-            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
-          </div>
-          <div class="mb-3">
-            <label for="motivo" class="form-label">Motivo:</label>
-            <textarea class="form-control" id="motivo" name="motivo" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-success ">Enviar Solicitud</button>
-        </form>
+  <div class="card p-4">
+    <h2 class="text-center text-warning mb-3">Solicitar Vacaciones</h2>
+
+    <!-- El objeto debe llamarse 'vacacion' en el modelo -->
+    <form th:action="@{/vacaciones/guardar}" th:object="${vacacion}" method="POST">
+
+      <div class="mb-3">
+        <label class="form-label">Fecha de Inicio:</label>
+        <input type="date" class="form-control" th:field="*{fechaInicio}" required>
       </div>
-    </div>
+
+      <div class="mb-3">
+        <label class="form-label">Fecha de Fin:</label>
+        <input type="date" class="form-control" th:field="*{fechaFin}" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Motivo:</label>
+        <textarea class="form-control" th:field="*{comentarios}" rows="3" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success">Enviar Solicitud</button>
+    </form>
+  </div>
+</div>
+
 
     <!-- Historial Vacaciones -->
     <div id="seccionVacacionesHistorial" style="display: none;">
-      <div class="card shadow-lg p-4 border-0 rounded-4 mb-4">
-        <h2 class="text-center text-warning mb-3">Historial de Vacaciones</h2>
-        <table class="table table-striped table-hover text-center">
-          <thead class="table-dark">
-            <tr>
-              <th>Fecha Inicio</th>
-              <th>Fecha Fin</th>
-              <th>Motivo</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Se rellenará desde JS o desde el backend -->
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="card shadow-lg p-4 border-0 rounded-4 mb-4">
+    <h2 class="text-center text-warning mb-3">Historial de Vacaciones</h2>
+    <table class="table table-striped table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Fecha Inicio</th>
+          <th>Fecha Fin</th>
+          <th>Motivo</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="vacacion : ${vacaciones}">
+          <td th:text="${vacacion.fechaInicio}"></td>
+          <td th:text="${vacacion.fechaFin}"></td>
+          <td th:text="${vacacion.comentarios}"></td>
+          <td>
+            <span th:classappend="${
+                vacacion.estado == 'Aprobada' ? 'badge bg-success' : 
+                (vacacion.estado == 'Pendiente' ? 'badge bg-warning text-dark' : 'badge bg-danger')
+              }">
+              <span th:text="${vacacion.estado}"></span>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
     <!-- Incapacidades -->
     <!-- Sección Incapacidades -->
 <div id="seccionIncapacidades" class="content-section" style="display: none;">
   <h2>Reporte de Incapacidad</h2>
-  <form id="incapacidadForm">
+
+  <!-- Formulario para registrar incapacidad -->
+ <form id="incapacidadForm" action="/incapacidades/guardar" method="post" enctype="multipart/form-data">
+    
     <div class="form-group">
       <label for="fechaInicioIncapacidad">Fecha de Inicio</label>
       <input type="date" id="fechaInicioIncapacidad" name="fechaInicioIncapacidad" required>
@@ -210,13 +234,21 @@
     </div>
 
     <div class="form-group">
+      <label for="nombreEps">Nombre EPS</label>
+      <input type="text" id="nombreEps" name="nombreEps" placeholder="Ingrese el nombre de su EPS" required>
+    </div>
+
+    <div class="form-group">
       <label for="archivoSoporte">Adjuntar Soporte Médico</label>
       <input type="file" id="archivoSoporte" name="archivoSoporte" accept=".pdf,.jpg,.png" required>
     </div>
 
     <button type="submit" class="btn-guardar">Subir Incapacidad</button>
-  </form>
+</form>
+
 </div>
+
+
 
     <!-- Horario -->
     <div class="card mt-4 p-4 shadow" id="seccionHorario" style="display: none;">
