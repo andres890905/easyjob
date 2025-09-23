@@ -15,6 +15,9 @@ public class Usuario {
     @JoinColumn(name = "id_sucursal", nullable = false)
     private Sucursal sucursal;
 
+    @Column(name = "telefono", insertable = false)
+    private String telefono;
+
     @ManyToOne
     @JoinColumn(name = "id_roles", nullable = false)
     private Rol rol;
@@ -23,7 +26,7 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contrasena;
-    private String telefono;
+    
     private LocalDate fechaRegistro;
     private String direccion;
     private LocalDate fechaNacimiento;
