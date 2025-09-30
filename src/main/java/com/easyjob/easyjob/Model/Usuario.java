@@ -12,7 +12,7 @@ public class Usuario {
     private Integer idusuarios; // Ahora el usuario escribe la cédula manualmente
 
     @ManyToOne
-    @JoinColumn(name = "id_sucursal", nullable = false)
+    @JoinColumn(name = "id_sucursal", nullable = true)
     private Sucursal sucursal;
 
     @Column(name = "telefono", insertable = false)
