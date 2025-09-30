@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const seccionVacacionesHistorial = document.getElementById("seccionVacacionesHistorial");
   const incapacidadForm = document.getElementById("incapacidadForm");
   const mensajeExito = document.getElementById("mensaje-exito");
+  const mensajeExitoIncapacidad = document.getElementById("mensaje-exito-incapacidad");
+  const mensajeErrorIncapacidad = document.getElementById("mensaje-error-incapacidad");
 
   // Toggle menú lateral (mobile)
   if (toggleSidebar) {
@@ -61,12 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ======================
-  // INCAPACIDADES - Envío al backend
+  // INCAPACIDADES - Envío al backend vía fetch
   // ======================
   if (incapacidadForm) {
     incapacidadForm.addEventListener("submit", async function (e) {
       e.preventDefault(); // prevenir recarga
-
       const formData = new FormData(incapacidadForm);
 
       try {
@@ -76,54 +77,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (response.ok) {
-          // Mostrar mensaje de éxito
-          if (mensajeExito) {
-            mensajeExito.textContent = "✅ Incapacidad registrada y soporte subido correctamente";
-            mensajeExito.style.display = "block";
-          }
+          mensajeExito.textContent = "✅ Incapacidad registrada y soporte subido correctamente";
+          mensajeExito.className = "alert alert-success";
+          mensajeExito.style.display = "block";
           incapacidadForm.reset();
         } else {
-          if (mensajeExito) {
-            mensajeExito.textContent = "❌ Error al registrar la incapacidad";
-            mensajeExito.style.display = "block";
-          }
+          mensajeExito.textContent = "❌ Error al registrar la incapacidad";
+          mensajeExito.className = "alert alert-danger";
+          mensajeExito.style.display = "block";
         }
       } catch (error) {
         console.error(error);
-        if (mensajeExito) {
-          mensajeExito.textContent = "❌ Error al enviar la incapacidad";
-          mensajeExito.style.display = "block";
-        }
+        mensajeExito.textContent = "❌ Error al enviar la incapacidad";
+        mensajeExito.className = "alert alert-danger";
+        mensajeExito.style.display = "block";
       }
 
-      // Ocultar mensaje después de 3 segundos
-      setTimeout(() => {
-        if (mensajeExito) mensajeExito.style.display = "none";
-      }, 3000);
+      setTimeout(() => { mensajeExito.style.display = "none"; }, 6000);
     });
   }
 
   // Mostrar bienvenida al iniciar
   ocultarTodo();
   if (tarjetaBienvenida) tarjetaBienvenida.style.display = "block";
-});
 
-// Evento del logo → muestra bienvenida
-const btnLogo = document.getElementById("btnLogo");
-if (btnLogo) {
-  btnLogo.addEventListener("click", (e) => {
-    e.preventDefault();
-    const tarjetaBienvenida = document.getElementById("tarjetaBienvenida");
-    const hojaDeVida = document.getElementById("hojaDeVida");
-    const seccionIncapacidades = document.getElementById("seccionIncapacidades");
-    const seccionHorario = document.getElementById("seccionHorario");
-    const seccionVacacionesForm = document.getElementById("seccionVacacionesForm");
-    const seccionVacacionesHistorial = document.getElementById("seccionVacacionesHistorial");
+  // ======================
+  // Mostrar sección de incapacidades si hay mensaje Thymeleaf
+  // ======================
+  if ((mensajeExitoIncapacidad && mensajeExitoIncapacidad.textContent.trim() !== "") ||
+      (mensajeErrorIncapacidad && mensajeErrorIncapacidad.textContent.trim() !== "")) {
+    ocultarTodo();
+    if (seccionIncapacidades) seccionIncapacidades.style.display = "block";
+  }
 
-    [tarjetaBienvenida, hojaDeVida, seccionIncapacidades, seccionHorario, seccionVacacionesForm, seccionVacacionesHistorial].forEach(s => {
-      if (s) s.style.display = "none";
+  // Evento del logo → muestra bienvenida
+  const btnLogo = document.getElementById("btnLogo");
+  if (btnLogo) {
+    btnLogo.addEventListener("click", (e) => {
+      e.preventDefault();
+      ocultarTodo();
+      if (tarjetaBienvenida) tarjetaBienvenida.style.display = "block";
     });
-    if (tarjetaBienvenida) tarjetaBienvenida.style.display = "block";
-  });
-}
-
+  }
+});

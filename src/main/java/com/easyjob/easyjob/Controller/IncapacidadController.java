@@ -29,7 +29,7 @@ public class IncapacidadController {
                                      @RequestParam("motivoIncapacidad") String motivo,
                                      @RequestParam("archivoSoporte") MultipartFile archivo,
                                      HttpSession session) throws IOException {
-
+        try{                                       
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (usuario == null) {
             return "redirect:/login";
@@ -61,6 +61,10 @@ public class IncapacidadController {
         incapacidadService.guardar(incapacidad);
 
         return "redirect:/dashboard_empleado?successIncapacidad=true";
+    }catch(Exception e){
+        e.printStackTrace();
+        return "redirect:/dashboard_empleado?errorIncapacidad=true";
+    }
     }
 
     @GetMapping("/mis-incapacidades")

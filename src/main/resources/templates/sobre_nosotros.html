@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nosotros</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{/css/sobre.css}" />
+
+
+</head>
+
+<body>
+
+  <!-- NAVBAR - NUEVO DISEÑO -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center text-warning neon-hover" th:href="@{/}">
+        <img src="/imagenes/Logo.png" alt="Logo de Easy Job">
+        Easy Job
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-warning neon-hover" th:href="@{/login}">Portal de Empleados</a>
+          <a class="nav-link text-warning neon-hover" th:href="@{/registro}">Registrarte</a>
+          <a class="nav-link text-warning neon-hover" th:href="@{/sobre}">Sobre Nosotros</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- /NAVBAR -->
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-10">
+          <h1 class="display-4 fw-bold mb-4 text-primary">Sobre Nosotros</h1>
+          <p class="lead">
+            Somos una empresa especializada en soluciones de recursos humanos para empresas con múltiples sucursales,
+            optimizando procesos y mejorando la productividad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL DESAFÍO QUE ABORDAMOS -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center mb-4 fw-bold text-warning">⚠️ El Desafío que Abordamos</h2>
+          <p class="text-center mb-5 fs-5">
+            Las empresas con múltiples sucursales enfrentan serios problemas operativos que afectan la productividad y
+            satisfacción laboral.
+          </p>
+
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title h4 mb-3 text-warning">Principales Problemáticas</h3>
+
+                  <p class="card-text mb-2 fw-semibold">Comunicación Deficiente:</p>
+                  <p class="card-text mb-4">Falta de canales efectivos entre sucursales que genera retrasos y
+                    malentendidos operativos.</p>
+
+                  <p class="card-text mb-2 fw-semibold">Gestión Lenta de Incapacidades:</p>
+                  <p class="card-text mb-4">Retrasos significativos en el procesamiento de documentos médicos hacia
+                    Recursos Humanos.</p>
+
+                  <p class="card-text mb-2 fw-semibold">Procesos Documentales Lentos:</p>
+                  <p class="card-text mb-3">Demoras excesivas en solicitudes de documentos corporativos que obstaculizan
+                    el trabajo diario.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title h4 mb-3 text-warning">Control de Asistencia Inadecuado</h3>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Sin registro de horas extras.</li>
+                    <li class="list-group-item">Falta de control en horarios de entrada, salida y almuerzos.</li>
+                    <li class="list-group-item">Empleados desinformados sobre sus horarios laborales.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><!-- row -->
+        </div><!-- col-12 -->
+      </div><!-- row -->
+    </div><!-- container -->
+  </section>
+
+
+  <!-- NUESTRA SOLUCIÓN -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center mb-5 fw-bold text-success">🎯 Nuestra Solución</h2>
+          <p class="text-center mb-5 fs-5">
+            Plataforma especializada para grandes empresas con múltiples puntos de venta que centraliza y optimiza la
+            gestión de recursos humanos.
+          </p>
+
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title h4 mb-3 text-success">Funcionalidades Principales</h3>
+
+                  <p class="card-text mb-2 fw-semibold">Gestión Centralizada de Solicitudes:</p>
+                  <p class="card-text mb-4">Sistema unificado para administrar solicitudes de empleados desde cualquier
+                    sucursal con seguimiento en tiempo real.</p>
+
+                  <p class="card-text mb-2 fw-semibold">Control Automatizado de Asistencia:</p>
+                  <p class="card-text mb-3">Registro digital de entrada y salida, con control de horas extras, retrasos
+                    y faltas.</p>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Reportes automatizados por sucursal.</li>
+                    <li class="list-group-item">Seguimiento detallado de asistencia.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4 class="card-title h5 mb-3 text-success">Beneficios Clave</h4>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Control centralizado de todas las sucursales.</li>
+                    <li class="list-group-item">Reducción de tiempos administrativos (Justificación de eficiencia).</li>
+                    <li class="list-group-item">Comunicación directa con el empleado.</li>
+                    <li class="list-group-item">Mayor transparencia en procesos.</li>
+                    <li class="list-group-item">Optimización de recursos humanos.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><!-- row -->
+        </div><!-- col-12 -->
+      </div><!-- row -->
+    </div><!-- container -->
+  </section>
+
+  <!-- FOOTER DE LADO A LADO -->
+  <footer class="text-white text-center">
+    <div class="container-fluid">
+      <p class="mb-0">© 2025 Easy Job - Todos los derechos reservados</p>
+      <small>Contacto: info@easyjob.com</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

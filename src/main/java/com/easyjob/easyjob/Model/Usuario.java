@@ -1,7 +1,6 @@
 package com.easyjob.easyjob.Model;
 
 import java.time.LocalDate;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -9,7 +8,7 @@ import jakarta.persistence.*;
 public class Usuario {
 
     @Id
-    private Integer idusuarios; // Ahora el usuario escribe la cédula manualmente
+    private Integer idusuarios;
 
     @ManyToOne
     @JoinColumn(name = "id_sucursal", nullable = true)
@@ -31,6 +30,8 @@ public class Usuario {
     private String direccion;
     private LocalDate fechaNacimiento;
 
+    // 🔹 Nuevo campo salario
+    private Double salario;
 
     // ===== Getters y Setters =====
     public Integer getIdusuarios() {
@@ -57,11 +58,11 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public String getNombre() {   // 👈 getter correcto
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {  // 👈 setter correcto
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -89,7 +90,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-     public String getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -97,16 +98,16 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public LocalDate getFechaRegistro() {   // 👈 getter correcto
-    return fechaRegistro;
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalDate fechaRegistro) {  // 👈 setter correcto
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
-}
+    }
 
     public String getDireccion() {
-    return direccion;
+        return direccion;
     }
 
     public void setDireccion(String direccion) {
@@ -114,11 +115,20 @@ public class Usuario {
     }
 
     public LocalDate getFechaNacimiento() {
-    return fechaNacimiento;
-}
+        return fechaNacimiento;
+    }
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    // 🔹 Getter y setter del salario
+    public Double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
     }
 }
 

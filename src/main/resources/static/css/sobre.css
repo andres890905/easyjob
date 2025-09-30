@@ -1,0 +1,181 @@
+/* ===== FONDO GLOBAL ===== */
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #252d40 0%, #374e5f 100%);
+    background-attachment: fixed;
+    color: #fff;
+    padding-top: 80px;
+    /* Añade espacio para el navbar fijo */
+}
+
+/* Contenedores sin bloques */
+section,
+.container,
+.row,
+.col-12,
+.col-lg-6,
+.col-lg-10 {
+    background: transparent !important;
+}
+
+section.bg-light {
+    background: transparent !important;
+}
+
+/* ===== NAVBAR - NUEVO DISEÑO FIJO ===== */
+nav.navbar {
+    background: linear-gradient(135deg, #252d40 0%, #374e5f 100%);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1030;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .nav-link {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #ffe082;
+}
+
+.navbar-brand {
+    color: #ffc107 !important;
+    font-weight: 600;
+}
+
+.navbar-brand img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, .35) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(135deg, #252d40 0%, #374e5f 100%);
+    }
+
+    body {
+        padding-top: 70px;
+        /* Ajusta el padding para móviles */
+    }
+}
+
+/* Efecto neon */
+.neon-hover {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.neon-hover:hover {
+    color: #0ff !important;
+    text-shadow: 0 0 5px #208585, 0 0 10px #208585, 0 0 20px #208585, 0 0 40px #208585;
+    transform: scale(1.05);
+}
+
+/* ===== Tarjetas/listas SIN BORDES NI DIVISIONES ===== */
+.card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.card.border-success {
+    border: none !important;
+}
+
+.list-group,
+.list-group-flush,
+.list-group-item {
+    background: transparent !important;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    color: #e9ecef !important;
+    padding-left: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+p.lead,
+p.fs-5 {
+    color: #fff !important;
+}
+
+.text-primary {
+    color: #9ec5fe !important;
+}
+
+.text-success {
+    color: #a6e3c5 !important;
+}
+
+.text-warning {
+    color: #ffe082 !important;
+}
+
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.shadow-sm {
+    box-shadow: none !important;
+}
+
+/* ===== FOOTER DE LADO A LADO ===== */
+footer {
+    background: rgba(0, 0, 0, 0.88) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 0;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+footer p,
+footer small {
+    color: #ffc107 !important;
+    margin: 0;
+}
+
+footer small {
+    display: block;
+    margin-top: 6px;
+}

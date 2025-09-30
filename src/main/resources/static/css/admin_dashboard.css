@@ -129,3 +129,90 @@ body {
   font-weight: 600;
   font-size: 1rem;
 }
+/* Contenedor del formulario */
+#resultadoEmpleado .card {
+    background-color: #121212; /* negro profundo */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    margin-top: 20px;
+    color: #ffc107; /* texto amarillo */
+    border: 1px solid #ffc107; /* borde amarillo */
+}
+
+/* Títulos dentro del formulario */
+#resultadoEmpleado h4 {
+    color: #ffc107;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 5px;
+}
+
+/* Inputs, selects y textarea */
+#resultadoEmpleado input,
+#resultadoEmpleado select,
+#resultadoEmpleado textarea {
+    border-radius: 8px;
+    border: 1px solid #ffc107;
+    background-color: #1e1e1e;
+    color: #ffc107;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+#resultadoEmpleado input::placeholder,
+#resultadoEmpleado textarea::placeholder {
+    color: #ffd54f; /* placeholder más claro */
+}
+
+#resultadoEmpleado input:focus,
+#resultadoEmpleado select:focus,
+#resultadoEmpleado textarea:focus {
+    border-color: #ffeb3b;
+    box-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
+    outline: none;
+}
+
+/* Botones */
+#resultadoEmpleado .btn-success {
+    background-color: #ffc107;
+    color: #121212;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#resultadoEmpleado .btn-success:hover {
+    background-color: #ffca28;
+    color: #121212;
+}
+
+#resultadoEmpleado .btn-danger {
+    background-color: #e53935;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#resultadoEmpleado .btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+/* Mensajes de alerta */
+#resultadoEmpleado .alert {
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #1e1e1e;
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}

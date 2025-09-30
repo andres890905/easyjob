@@ -10,6 +10,9 @@ public class HomeController {
     public String index() {
         return "index";
     }
-
+    @GetMapping("/sobre_nosotros")
+    public String SobreNosotros() {
+        return "sobre_nosotros"; // la vista login.html
+    }
     
 }

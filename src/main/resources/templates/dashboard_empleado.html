@@ -59,7 +59,7 @@
       <i class="bi bi-caret-down-fill float-end"></i>
     </button>
     <div class="dropdown-container">
-      <a href="#"><i class="bi bi-file-earmark-text me-2"></i>Certificado Laboral</a>
+      <a href="/certificado" target="_blank"><i class="bi bi-file-earmark-text me-2"></i>Certificado Laboral</a>
       <a href="#"><i class="bi bi-receipt me-2"></i>Comprobante de pago</a>
       <a href="#"><i class="bi bi-files-alt me-2"></i>Otros certificados</a>
     </div>
@@ -87,7 +87,7 @@
     <!-- Tarjeta de bienvenida -->
    <div class="card shadow-lg p-4 border-0 rounded-4 text-center" id="tarjetaBienvenida">
   <div class="card-body">
-    <img src="imagenes/perfil.jpeg" alt="Foto Usuario" class="foto-usuario mb-3">
+    <img src="imagenes/perfil.jpg" alt="Foto Usuario" class="foto-usuario mb-3">
 
     <h3 class="card-title text-warning" th:text="${usuario.nombre} + ' ' + ${usuario.apellido}"></h3>
     <p class="text-warning" th:text="${usuario.rol.tipoRol}"></p>
@@ -216,7 +216,7 @@
   <h2>Reporte de Incapacidad</h2>
 
   <!-- Formulario para registrar incapacidad -->
- <form id="incapacidadForm" action="/incapacidades/guardar" method="post" enctype="multipart/form-data">
+ <form id="incapacidadForm" th:action="@{/incapacidades/guardar}" method="post" enctype="multipart/form-data">
     
     <div class="form-group">
       <label for="fechaInicioIncapacidad">Fecha de Inicio</label>
@@ -245,6 +245,13 @@
 
     <button type="submit" class="btn-guardar">Subir Incapacidad</button>
 </form>
+<div id="mensaje-exito" th:if="${param.successIncapacidad}" class="alert alert-success">
+    ✅ Incapacidad registrada y soporte subido correctamente
+</div>
+
+<div id="mensaje-error" th:if="${param.errorIncapacidad}" class="alert alert-danger">
+    ❌ Error al registrar la incapacidad
+</div>
 
 </div>
 
